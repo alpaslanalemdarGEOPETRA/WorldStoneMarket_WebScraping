@@ -36,19 +36,19 @@ public class GWD {
                 case "safari":  threadDriver.set(new SafariDriver());  break; // ilgili threade bir driver set ettim
                 case "edge":    threadDriver.set(new EdgeDriver());    break; // ilgili threade bir driver set ettim
                 default :
-                    if (isRunningOnJenkins()) {
-                        FirefoxOptions options = new FirefoxOptions();
-                        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
-                        threadDriver.set(new FirefoxDriver(options));
-                    }
-                    else {
-                        threadDriver.set(new ChromeDriver()); // ilgili threade bir driver set ettim
-                    }
+//                    if (isRunningOnJenkins()) {
+//                        FirefoxOptions options = new FirefoxOptions();
+//                        options.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
+//                        threadDriver.set(new FirefoxDriver(options));
+//                    }
+//                    else {
+//                        threadDriver.set(new ChromeDriver()); // ilgili threade bir driver set ettim
+//                    }
 
-//                    EdgeOptions eOptions=new EdgeOptions();
-//                    eOptions.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
-//                    threadDriver.set(new EdgeDriver(eOptions));
-            }
+                    EdgeOptions eOptions=new EdgeOptions();
+                    eOptions.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
+                    threadDriver.set(new EdgeDriver(eOptions));
+        }
         }
 
         threadDriver.get().manage().window().maximize();
