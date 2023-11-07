@@ -45,9 +45,9 @@ public class GWD {
 //                        threadDriver.set(new ChromeDriver()); // ilgili threade bir driver set ettim
 //                    }
 
-                    EdgeOptions eOptions=new EdgeOptions();
-                    eOptions.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
-                    threadDriver.set(new EdgeDriver(eOptions));
+//                    EdgeOptions eOptions=new EdgeOptions();
+//                    eOptions.addArguments("--headless", "--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu", "--window-size=1400,2400");
+                    threadDriver.set(new EdgeDriver());
         }
         }
 
