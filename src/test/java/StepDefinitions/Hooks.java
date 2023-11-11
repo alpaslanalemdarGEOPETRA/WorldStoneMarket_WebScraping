@@ -31,7 +31,7 @@ public class Hooks {
 
         //System.out.println("Senaryo bitti ?");
         // doğru çalışırsa burada quiti çağıracağım
-        GWD.quitDriver();
+       // GWD.quitDriver();
     }
 
 }

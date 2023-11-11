@@ -3,6 +3,7 @@ package Pages;
 import Utilities.GWD;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,10 +16,24 @@ public class Parent {
 
     public WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(20));
 
+    WebDriver driver = GWD.getDriver();
+
     public void myClick(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
         scrollToElement(element);
         element.click();
+
+
+        String originalHandle = driver.getWindowHandle();
+
+
+        for (String handle : driver.getWindowHandles()) {
+            if (!handle.equals(originalHandle)) {
+                driver.switchTo().window(handle);
+               break;
+            }
+        }
+
     }
 
     public void mySendKeys(WebElement element, String yazi){
