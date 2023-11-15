@@ -1,10 +1,7 @@
 package Pages;
 
 import Utilities.GWD;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,9 +16,16 @@ public class Parent {
     WebDriver driver = GWD.getDriver();
 
     public void myClick(WebElement element){
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-        scrollToElement(element);
-        element.click();
+
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            scrollToElement(element);
+            element.click();
+        }catch (StaleElementReferenceException e){
+
+            System.out.println("Hata Verdi stale hatası!!");
+        }
+
 
 
         String originalHandle = driver.getWindowHandle();
@@ -60,6 +64,8 @@ public class Parent {
         scrollToElement(element);
         JavascriptExecutor js=(JavascriptExecutor)GWD.getDriver();
         js.executeScript("arguments[0].click();", element);
+
     }
+
 
 }
